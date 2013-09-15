@@ -1,0 +1,19 @@
+<h1><%= @item.name %></h1>
+<ul>
+	<li>ID: <%= @item.id %></li>
+	<li>Цена: <%= @item.price %> руб.</li>
+	<li>Вещественный: <%=
+	case @item.real
+		when true then "да"
+		when false then "нет"
+		else "не определен"
+	end
+	%></li>
+	<li>Вес: <%= @item.weight %> кг.</li>
+	<li>Описание: <%= @item.description %></li>
+</ul>
+<p><%= link_to "Список товаров", items_path %></p>
+<% if @current_user_admin %>
+<p><%= link_to "Изменить", edit_item_path(@item) %></td></p>
+<p><%= link_to "Удалить", @item, method: :delete, data: {confirm: "Подтвердите удаление товара"} %></p>
+<% end %>

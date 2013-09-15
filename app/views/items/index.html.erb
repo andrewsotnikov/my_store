@@ -1,0 +1,30 @@
+<h1>Список товаров</h1>
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Наименование</th>
+		<th>Цена, руб</th>
+		<th>Вещественный</th>
+		<th>Вес, кг</th>
+		<th>Описание</th>
+	</tr>
+	<% @items.each do |item| %>
+	<tr>
+		<td><%= link_to item.id, item %></td>
+		<td><%= item.name %></td>
+		<td><%= item.price %></td>
+		<td><%=
+		case item.real
+			when true then "да"
+			when false then "нет"
+			else "не определен"
+		end
+		%></td>
+		<td><%= item.weight %></td>
+		<td><%= item.description %></td>
+	</tr>	
+	<% end %>
+</table>
+<% if @current_user_admin %>
+<p><%= link_to "Добавить новый товар", new_item_path %></p>
+<% end %>

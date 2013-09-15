@@ -1,0 +1,25 @@
+<h1>Добавление товара:</h1>
+<%= form_for @item do |form| %>
+<table>
+	<tr>
+		<th>Наименование:</th>
+		<td><%= form.text_field :name %></td>
+	</tr>
+	<tr>
+		<th>Цена, руб</th>
+		<td><%= form.text_field :price %></td>
+	</tr>
+	<tr>
+		<th>Вес, кг</th>
+		<td><%= form.text_field :weight %></td>
+	</tr>
+	<tr>
+		<th>Описание</th>
+		<td><%= form.text_field :description %></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><%= form.submit "Сохранить товар" %></td>
+	</tr>
+</table>
+<% end %>
+<p><%= link_to "Список товаров", items_path %></p>
