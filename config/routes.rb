@@ -1,6 +1,9 @@
 MyStore::Application.routes.draw do
   # get ':controller(/:action(/:id))(.:format)'
-  resources :items
+  resources :items do
+    get :upvote, on: :member
+    get :expensive, on: :collection
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,7 @@
 <h1>Список товаров</h1>
+<% if @items.empty? %>
+<b>Не найдено товаров в магазине</b> 
+<% else %>
 <table border="1">
 	<tr>
 		<th>ID</th>
@@ -7,6 +10,7 @@
 		<th>Вещественный</th>
 		<th>Вес, кг</th>
 		<th>Описание</th>
+		<th>Рейтинг</th>
 	</tr>
 	<% @items.each do |item| %>
 	<tr>
@@ -22,9 +26,14 @@
 		%></td>
 		<td><%= item.weight %></td>
 		<td><%= item.description %></td>
+		<td align="right"><%= item.votes_count %> <%= link_to '+', upvote_item_path(item) %> </td>
 	</tr>	
 	<% end %>
 </table>
+<% end %>
+<p><%= link_to "Список товаров", items_path %></p>
+<p><%= link_to "Список дорогих товаров", expensive_items_path %></p>
 <% if @current_user_admin %>
 <p><%= link_to "Добавить новый товар", new_item_path %></p>
 <% end %>
+
