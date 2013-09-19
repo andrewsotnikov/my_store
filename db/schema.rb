@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919214723) do
+ActiveRecord::Schema.define(version: 20130919225107) do
+
+  create_table "blog_posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -19,7 +26,19 @@ ActiveRecord::Schema.define(version: 20130919214723) do
     t.datetime "updated_at"
   end
 
-  add_index "carts", ["user_id"], name: "index_carts_on_user_id", unique: true
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "items", force: true do |t|
     t.float    "price"

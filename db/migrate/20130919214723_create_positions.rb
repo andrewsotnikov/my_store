@@ -1,14 +1,12 @@
 class CreatePositions < ActiveRecord::Migration
   def up
     create_table :positions do |t|
-      t.integer :cart_id
-      t.integer :item_id
+      t.references :cart, index: true
+      t.references :item, index: true
       t.integer :quantity, default: 0
 
       t.timestamps
     end
-    add_index :positions, :cart_id
-    add_index :positions, :item_id
     
     drop_table :carts_items
   end
@@ -17,8 +15,8 @@ class CreatePositions < ActiveRecord::Migration
     drop_table :positions
     
     create_table :carts_items, id: false do |t|
-      t.integer :cart_id
-      t.integer :item_id
+      t.references :cart, index: true
+      t.references :item, index: true
     end
   end
 end
