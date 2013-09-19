@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.boolean :real
       t.float :weight
+      
       t.timestamps
     end
   end

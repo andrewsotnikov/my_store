@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916165017) do
+ActiveRecord::Schema.define(version: 20130919214723) do
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", unique: true
 
   create_table "items", force: true do |t|
     t.float    "price"
@@ -26,5 +34,32 @@ ActiveRecord::Schema.define(version: 20130916165017) do
 
   add_index "items", ["name"], name: "index_items_on_name"
   add_index "items", ["price"], name: "index_items_on_price"
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "positions", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.integer  "quantity",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "positions", ["cart_id"], name: "index_positions_on_cart_id"
+  add_index "positions", ["item_id"], name: "index_positions_on_item_id"
+
+  create_table "users", force: true do |t|
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["login"], name: "index_users_on_login", unique: true
 
 end
