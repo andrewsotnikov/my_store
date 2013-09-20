@@ -1,6 +1,7 @@
 <h1>Изменение товара:</h1>
 <%= form_for @item do |f| %>
 <%= render partial: "form", locals: {form: f} %>
+<p><%= f.submit "Сохранить товар" %></p>
 <% end %>
 <p><%= link_to "Список товаров", items_path %></p>
 <p><%= link_to "Вернуться к товару", @item %></p>

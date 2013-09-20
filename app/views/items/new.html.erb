@@ -1,5 +1,6 @@
 <h1>Добавление товара:</h1>
 <%= form_for @item do |f| %>
 <%= render partial: "form", locals: {form: f} %>
+<p><%= f.submit "Добавить товар" %></p>
 <% end %>
 <p><%= link_to "Список товаров", items_path %></p>
