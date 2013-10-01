@@ -8,17 +8,17 @@ class ApplicationController < ActionController::Base
   private
   
     def render_403
-      render file: "public/403.html", status: 403
+      render file: "public/403.html", status: 403, layout: "application" 
     end
     
     def render_404
-      render file: "public/404.html", status: 404
+      render file: "public/404.html", status: 404, layout: "application"
     end
     
     def check_admin
-      # if params[:admin]
+       # if params[:admin]
           @current_user_admin = true
-      # end
+       # end
     end
       
     def access_admin

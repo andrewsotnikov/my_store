@@ -1,0 +1,12 @@
+<table border="1">
+<tr>
+	<th>ID</th>
+	<th>Наименование</th>
+	<th>Цена, руб</th>
+	<th>Вещественный</th>
+	<th>Вес, кг</th>
+	<th>Описание</th>
+	<th>Рейтинг</th>
+</tr>
+<%= render partial: "item_list_row", collection: @items, as: :item %>
+</table>

@@ -10,7 +10,7 @@
 	end
 	%></li>
 	<li>Вес: <%= @item.weight %> кг.</li>
-	<li>Описание: <%= @item.description %></li>
+	<li>Описание: <%= urls_to_links(urls_to_images(@item.description)) %></li>
 </ul>
 <p><%= link_to "Список товаров", items_path %></p>
 <% if @current_user_admin %>

@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     if @item.errors.empty?
       redirect_to item_path(@item)
     else
-      render "new"
+      render :new
     end
   end
   
@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
     if @item.errors.empty?
       redirect_to item_path(@item)
     else
-      render "edit"
+      render :edit
     end 
   end
   

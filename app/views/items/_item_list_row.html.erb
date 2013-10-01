@@ -1,0 +1,15 @@
+<tr>
+	<td><%= link_to item.id, item %></td>
+	<td><%= item.name %></td>
+	<td><%= item.price %></td>
+	<td><%=
+	case item.real
+		when true then "да"
+		when false then "нет"
+		else "не определен"
+	end
+	%></td>
+	<td><%= item.weight %></td>
+	<td><%= urls_to_links(item.description) %></td>
+	<td align="right"><%= item.votes_count %> <%= link_to '+', upvote_item_path(item) %> </td>
+</tr>	
