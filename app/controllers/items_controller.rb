@@ -5,7 +5,17 @@ class ItemsController < ApplicationController
   
   # /items GET
   def index
-    @items = Item.all
+    @items = Item
+    # @items = @items.where(price: 5000)
+    # @items = @items.where(votes_count: 5)
+    # @items = @items.where(votes_count: 6, price: 5000)
+    # @items = @items.where("votes_count = 6 or price = 5000")
+    # @items = @items.where("votes_count = 6 or price >= 1000")
+    @items = @items.where("price >= ?", params[:price_from]) if params[:price_from]
+    @items = @items.where("created_at >= ?", 15.day.ago) if params[:today] 
+    @items = @items.where("votes_count >= ?", params[:votes_from]) if params[:votes_from]
+    @items = @items.order("votes_count DESC", :price).limit(50)
+    @items = @items.includes(:carts)
     #render text: @items.map { |i| "#{i.id} = #{i.name}: #{i.price} руб" }.join("<br/>") 
   end
   
@@ -41,8 +51,10 @@ class ItemsController < ApplicationController
   def update
     @item.update_attributes(params_item)
     if @item.errors.empty?
+      flash[:success_item] = "Товар успешно сохранен."
       redirect_to item_path(@item)
     else
+      flash.now[:error_item] = "Ошибка заполнения формы. Введите правильные значения."
       render :edit
     end 
   end
