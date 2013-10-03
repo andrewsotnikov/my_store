@@ -1,14 +1,5 @@
 %p{style: "color: red"}= flash[:error_item]
-%table
-  %tr
-    %th Наименование:
-    %td= form.text_field :name
-  %tr
-    %th Цена, руб
-    %td= form.text_field :price
-  %tr
-    %th Вес, кг
-    %td= form.text_field :weight
-  %tr
-    %th Описание
-    %td= form.text_area :description, size: "35x7"
+= form.input :name, label: "Наименование"
+= form.input :price, label: "Цена, руб"
+= form.input :weight, label: "Вес, кг"
+= form.input :description, label: "Описание", as: :text

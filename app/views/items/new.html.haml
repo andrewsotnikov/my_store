@@ -1,5 +1,5 @@
 %h1 Добавление товара:
-= form_for @item do |f|
+= simple_form_for @item, html: {class: 'form-horizontal' } do |f|
   = render partial: "form", locals: {form: f}
   %p= f.submit "Добавить товар"
 %p= link_to "Список товаров", items_path
