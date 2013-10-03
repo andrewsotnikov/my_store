@@ -1,11 +1,20 @@
 %h1= @item.name
 %p{style: "color: green"}= flash[:success_item]
 %ul
-  %li ID: #{@item.id}
-  %li Цена: #{@item.price} руб.
-  %li= "Вещественный: " + case @item.real when true then "да" when false then "нет" else "не определен" end
-  %li Вес: #{@item.weight} кг.
-  %li Описание: #{urls_to_links(urls_to_images(@item.description))}
+  %li
+    ID: #{@item.id}
+  %li
+    Цена: #{@item.price} руб.
+  %li= "Вещественный: " +   |
+      case @item.real       |
+      when true then "да"   |
+      when false then "нет" |
+      else "не определен"   |
+      end                   |
+  %li
+    Вес: #{@item.weight} кг.
+  %li
+    Описание: #{urls_to_links(urls_to_images(@item.description))}
 %p= link_to "Список товаров", items_path
 - if @current_user_admin
   %p= link_to "Изменить", edit_item_path(@item)

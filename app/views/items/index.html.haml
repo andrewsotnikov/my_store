@@ -1,0 +1,9 @@
+%h1 Список товаров
+- if @items.empty?
+  %b Не найдено товаров в магазине
+- else
+  = render partial: "items_list"
+%p= link_to "Список товаров", items_path
+%p= link_to "Список дорогих товаров", expensive_items_path
+- if @current_user_admin
+  %p= link_to "Добавить новый товар", new_item_path

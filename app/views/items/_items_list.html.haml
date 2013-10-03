@@ -1,0 +1,10 @@
+%table{border: "1"}
+  %tr
+    %th ID
+    %th Наименование
+    %th Цена, руб
+    %th Вещественный
+    %th Вес, кг
+    %th Описание
+    %th Рейтинг
+  = render partial: "item_list_row", collection: @items, as: :item
