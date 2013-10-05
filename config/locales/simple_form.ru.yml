@@ -1,15 +1,15 @@
-en:
+ru:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Да'
+    "no": 'Нет'
     required:
-      text: 'required'
+      text: 'обязательный'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       html: '*'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Пожалуйста, ознакомьтесь с проблемами ниже:"
     # Labels and hints examples
     # labels:
     #   defaults:
@@ -25,5 +25,7 @@ en:
     #     password: 'No special characters, please.'
     labels:
       item:
-        price: 'Price, rub'
-        weight: 'Weight, kg'
+        name: 'Наименование'
+        price: 'Цена, руб'
+        weight: 'Вес, кг'
+        description: 'Описание'

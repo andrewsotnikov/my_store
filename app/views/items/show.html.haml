@@ -12,7 +12,7 @@
       else "не определен"   |
       end                   |
   %li
-    Вес: #{@item.weight} кг.
+    #{t "item.weight_capitalize"}: #{@item.weight} #{t "weight.kg"}.
   %li
     Описание: #{urls_to_links(urls_to_images(@item.description))}
 %p= link_to "Список товаров", items_path

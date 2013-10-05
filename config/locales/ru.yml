@@ -19,9 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+ru:
+  activerecord:
+    models:
+      item: 'товар'
+    attributes:
+      item:
+        name: "наименование"
+        price: "цена"
+        weight: "вес"
+        description: "описание"
+
   item:
-    weight_capitalize: 'Weight'
-    
+    weight: 'вес'
+    weight_capitalize: 'Вес'
+
   weight:
-    kg: 'kg'
+    kg: 'кг'
