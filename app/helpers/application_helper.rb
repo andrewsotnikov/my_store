@@ -1,3 +1,4 @@
+#encoding: windows-1251
 module ApplicationHelper
   def urls_to_images(s)
     s.gsub! /(?:\s|\A)(http:\/\/.*?(\.(png|jpeg|jpg|gif)))(?:\s|\Z)/, '<p><img src="\1"></p>'
